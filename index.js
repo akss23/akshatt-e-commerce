@@ -9,6 +9,20 @@ app.get("/", (req, res) => {
 });
 
 // start server
+import express from "express";
+const app = express();
+
+app.use(express.json());
+
+// Temporary route for testing
+app.get("/products", (req, res) => {
+  res.json([
+    { id: 1, name: "T-shirt", price: 499 },
+    { id: 2, name: "Jeans", price: 999 },
+    { id: 3, name: "Sneakers", price: 1499 },
+  ]);
+});
+
 app.listen(PORT, () => {
   console.log(`✅ Server started on port ${PORT}`);
 });
